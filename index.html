@@ -1,1 +1,214 @@
-# website-cinta
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+h1{
+    font-size:3rem;
+}
+
+p{
+    max-width:700px;
+    font-size:1.2rem;
+    margin:20px;
+    line-height:1.8;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4d6d;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.card{
+    width:320px;
+    background:white;
+    color:#333;
+    padding:20px;
+    border-radius:20px;
+    margin:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+#countdown{
+    font-size:2rem;
+    margin-top:20px;
+}
+
+.heart{
+    position:fixed;
+    top:-20px;
+    color:red;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+<body>
+
+<section>
+
+<h1>Hai ❤️</h1>
+
+<p>
+Website ini aku buat khusus untuk seseorang yang sangat berarti.
+Terima kasih sudah hadir dalam hidupku.
+</p>
+
+<button onclick="document.getElementById('surat').scrollIntoView({behavior:'smooth'})">
+Mulai
+</button>
+
+</section>
+
+<section id="surat">
+
+<h1>💌 Surat Untukmu</h1>
+
+<p>
+Terima kasih sudah menjadi bagian dari hidupku.
+Mungkin aku belum sempurna,
+tapi aku akan terus berusaha menjadi lebih baik setiap harinya.
+Semoga kita selalu diberi banyak kebahagiaan.
+❤️
+</p>
+
+</section>
+
+<section>
+
+<h1>❤️ Alasan Aku Sayang Kamu</h1>
+
+<div class="card">
+😊 Senyummu selalu bikin hariku lebih baik.
+</div>
+
+<div class="card">
+🤍 Kamu selalu mendukungku.
+</div>
+
+<div class="card">
+🌹 Karena kamu adalah rumah bagiku.
+</div>
+
+</section>
+
+<section>
+
+<h1>⏳ Sudah Bersama</h1>
+
+<div id="countdown"></div>
+
+</section>
+
+<section>
+
+<h1>❤️ Terima Kasih ❤️</h1>
+
+<p>
+Semoga cerita kita selalu indah.
+Aku sayang kamu hari ini,
+besok,
+dan seterusnya.
+</p>
+
+<button onclick="love()">
+Klik Aku ❤️
+</button>
+
+</section>
+
+<script>
+
+// Ganti dengan tanggal jadian kalian
+const startDate = new Date("2025-01-01");
+
+function updateCounter(){
+
+const now = new Date();
+
+const diff = now-startDate;
+
+const days = Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("countdown").innerHTML =
+days+" Hari ❤️";
+
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+function love(){
+
+alert("I Love You ❤️");
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*30)+"px";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
