@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lime Green Garden 💚</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top,#123d20,#020803);
+    font-family:'Arial',sans-serif;
+    color:white;
+}
+
+/* Bintang */
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.3;
+    }
+}
+
+
+/* Bunga */
+.flower{
+    position:absolute;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%);
+    width:200px;
+    height:200px;
+    animation:spin 10s linear infinite;
+}
+
+.petal{
+    position:absolute;
+    width:90px;
+    height:130px;
+    background:#7CFF00;
+    border-radius:50%;
+    top:20px;
+    left:55px;
+    transform-origin:45px 90px;
+    box-shadow:
+    0 0 20px #7CFF00,
+    0 0 50px #32ff32;
+}
+
+.p1{transform:rotate(0)}
+.p2{transform:rotate(45deg)}
+.p3{transform:rotate(90deg)}
+.p4{transform:rotate(135deg)}
+.p5{transform:rotate(180deg)}
+.p6{transform:rotate(225deg)}
+.p7{transform:rotate(270deg)}
+.p8{transform:rotate(315deg)}
+
+.center{
+    position:absolute;
+    width:70px;
+    height:70px;
+    background:white;
+    border-radius:50%;
+    top:65px;
+    left:65px;
+    box-shadow:
+    0 0 30px white,
+    0 0 60px #7CFF00;
+    z-index:5;
+}
+
+@keyframes spin{
+    from{
+        transform:translate(-50%,-50%) rotate(0);
+    }
+    to{
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
+}
+
+
+/* Pesan */
+.text{
+    position:absolute;
+    bottom:70px;
+    width:100%;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    color:#b6ff00;
+    font-size:42px;
+    text-shadow:
+    0 0 15px #7CFF00;
+}
+
+p{
+    margin-top:20px;
+    font-size:20px;
+}
+
+
+/* Hati */
+.heart{
+    position:absolute;
+    top:-30px;
+    color:#7CFF00;
+    animation:jatuh linear infinite;
+}
+
+@keyframes jatuh{
+    to{
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="flower">
+
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+<div class="petal p6"></div>
+<div class="petal p7"></div>
+<div class="petal p8"></div>
+
+<div class="center"></div>
+
+</div>
+
+
+<div class="text">
+
+<h1>Untuk Kamu 💚</h1>
+
+<p>
+Seperti warna lime green,
+kamu membawa cahaya dan kebahagiaan
+ke dalam hidupku 🌿✨
+</p>
+
+</div>
+
+
+<script>
+
+// membuat bintang
+for(let i=0;i<80;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+}
+
+
+// membuat hati jatuh
+function heart(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+h.innerHTML="💚";
+
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(15+Math.random()*30)+"px";
+h.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+
+setTimeout(()=>{
+h.remove();
+},8000);
+
+}
+
+setInterval(heart,300);
+
+</script>
+
+
+</body>
+</html>
